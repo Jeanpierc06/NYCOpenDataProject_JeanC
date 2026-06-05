@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- LeafletJS JS file (must place after Leaflet's CSS file) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js"></script>
+    <script src="helper.js"></script>
+   </head>
+
+  <body onload="initMaps()">
+    <div id="banner" class="container center">
+      <div style="text-align:center">
+          <h1>NYC Open Data</h1>
+          <h2>Filtering NYC Pool Inspections</h2>
+      </div>
+    </div>
+<nav class="container"> 
+  <a href="index.html"> Home Page</a>
+  <a href="html.html"> Charts </a>
+  <a href="css.html"> Maps </a>
+</nav>
+    <!-- Mapping map starts below here -->
+     
+  <body>
+    <div id="banner" class="container center">
+      <h1> Leaflet Map </h1>
+    </div>
+
+    <div class="container subbanner">
+      <div>
+        <p>This examples demonstrates how to display static maps for locations given a latitude and longitude.
+           Map functionality is provided through <a href="https://leafletjs.com/examples/quick-start/" target="_blank">LeafletJS</a>.           
+      </div>
+    </div>
+
+    <div class="container">
+      <input style="flex:1;text-align:right;" type="text" id="lati" placeholder="Enter latitude" >
+      <input style="flex:1;text-align:right;" type="text" id="long" placeholder="Enter longitude" >
+       &nbsp; <a class="button" onclick="displayMap()"> View </a>
+    </div>
+    
+    <div id="output" class="container">
+      <!-- container to display LeafletJS Map -->
+      <div id="map"></div>
+    </div>
+
+    <br>
+
+    <div class="card" id="rightPanel">
+        <h1>NYC Pool Inspections</h1>
+        <div id="result" class="container"></div>
+        <div id="output" class="container"></div>
+      </div>
+
+    <div id="footer" class="container center">
+      <h3>Lesson 6.6 Practical</h3>
+    </div>  
+  </body>
+</html>
