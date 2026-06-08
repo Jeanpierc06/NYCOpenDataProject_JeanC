@@ -3,70 +3,68 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>WD_6.6 Practical</title>
+    <title>NYC pool inspections</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="script.js"></script>
+
    </head>
 
-  <body onload="init()">
+  <body onload="initIndex()">
     <div id="banner" class="container center">
       <div style="text-align:center">
-          <h1>NYC Open Data</h1>
-          <h2>Filters for NYC Pool Inspections</h2>
+          <h1>NYC Open Data</h1>  
+          <h2>Filtering NYC pool inspections</h2>
       </div>
     </div>
-<nav class="container" id="scrollbar1"> 
+
+    <nav class="container"> 
   <a href="index.html"> Home Page</a>
   <a href="html.html"> Charts </a>
   <a href="css.html"> Maps </a>
 </nav>
+
     <div class="container subbanner">
       <div>
-        <p>This practical challenges students to provide various ways to filter information from
-          NYC Pool Inspections retrieved from NYC Open Data.</p> 
+        <p>This practical challenges students to provide various ways to filter  
+          NYC pool inspection retrieved from NYC Open Data.</p>
         <a class="button" href="https://opendata.cityofnewyork.us/" target="_blank">NYC Open Data</a> 
-        <a class="button" target="_blank" href="https://data.cityofnewyork.us/Health/NYC-Pool-Inspections/3kfa-rvez/about_data"
-"> NYC Pool Inspections</a>
+        <a class="button" target="_blank" href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9/about_data"
+"> NYC pool inspection</a>
         <a class="button" target="_blank" href="https://jsoneditoronline.org/"> JSON Editor Online</a>
        </div>
     </div>
-    body{
 
-    }
-<!-- <img src="" height="800px" width="1710px"> -->
     <div class="container">
       <div id="leftPanel">
         <!--Card below is the basic HTML to use for Challenge 1 and 3 -->
         <div class="card">
           <h3>SEARCH By amount of violations</h3>
-          <input type="text" id="violation_num" placeholder="Enter Violation">
+          <input type="text" id="violation" placeholder="Enter by number of violations">
           <hr></hr>
           <a class="button" onclick="filterByViolationNum()"> Search </a>
         </div>
+        <!--Challenge 1: Create another UI in order to filter by zip code. [See Challenge 2 in script.js] -->
 
         <div class="card">
-          <h3>SEARCH By accela ID</h3>
-          <input type="text" id="accela" placeholder="Enter Accela">
+          <h3>SEARCH By zipcode</h3>
+          <input type="text" id="accela" placeholder="Enter Accela ID ">
           <hr></hr>
           <a class="button" onclick="filterByAccela()"> Search </a>
         </div>
 
-<div class="card">
-          <h3>SEARCH By permit type </h3>
-          <input type="text" id="permit" placeholder="Enter Permit type">
+        <!--Challenge 3: Create another UI in order to filter by complaint type. [See Challenge 4 in script.js] -->
+
+        <div class="card">
+          <h3>SEARCH By permit</h3>
+          <input type="text" id="permit" placeholder="Enter permit type">
           <hr></hr>
           <a class="button" onclick="filterByPermit()"> Search </a>
         </div>
-        <!--Challenge 1: Create another UI in order to filter by zip code. [See Challenge 2 in script.js] -->
-
-
-        <!--Challenge 3: Create another UI in order to filter by complaint type. [See Challenge 4 in script.js] -->
-
 
       </div>
 
       <div class="card" id="rightPanel">
-        <h1>NYC Pool Inspections</h1>
+        <h1>NYC pool inspection</h1>
         <div id="result" class="container"></div>
         <div id="output" class="container"></div>
       </div>
@@ -74,7 +72,8 @@
     </div>
 
     <div id="footer" class="container center">
-      <h3>NYC Open Data Project made by JeanP C</h3>
+      <h3>Lesson 6.6 Practical</h3>
     </div>  
+    
   </body>
 </html>

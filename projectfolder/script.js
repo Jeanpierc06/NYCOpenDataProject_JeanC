@@ -32,8 +32,9 @@ async function init(){
 // Code below demonstrates the basic process to filter information by borough. Use this as a guide for Challenges 2 and 4 below.
 function filterByViolationNum(){
   let output = document.getElementById("output");
-  let violation = document.getElementById("violation_num").value;
+  let violation = document.getElementById("violation").value;
   let result = document.getElementById("result");
+
   
   let build = "";
   let ct = 0;
@@ -135,21 +136,24 @@ function filterByPermit(){
   result.innerHTML = `${ct} Results found.`
   output.innerHTML = build;
 }
+// charts PART //
+//Data Source: https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9
 
-// 📢 CHARTS PART 📢 //
+//global variables
 
-async function initCharts(){
-  let link = "pool.json"; //https://data.cityofnewyork.us/resource/erm2-nwe9.json?$limit=1000"; //
+
+async function init(){
+  let link = "pool.json"; //https://data.cityofnewyork.us/resource/erm2-nwe9.json?$limit=200";
   info = await fetch(link);
   data = await info.json();
-  console.log(data); 
+  console.log(data);
 }
 
 function violationsByInspections(){
-  //Variables to keep count of accidents by borough
+  //Create and initialize variables to keep a count of complaints by agency.
   let v0 = 0, v1 = 0, v2 = 0, v3 = 0, v4 = 0, v5 = 0, v6 = 0, o = 0;
 
-  //Tallying the count of accidents by borough
+  //Task 1: Traverse the data and increment the appropriate tally variable using the agency of the complaint. Use the tally variable "other" to capture all the other agencies.
   for(let i = 0; i < data.length; i++){
     let pool = data[i];
     if(pool.of_all_violations == "0"){
@@ -164,14 +168,10 @@ function violationsByInspections(){
       v4++;
     }else if(pool.of_all_violations == "5"){
       v5++;
-    }else if(pool.of_all_violations == "6"){
+  }else if(pool.of_all_violations == "6"){
       v6++;
-    } else{
-o++;
-} 
-   }
-
-  //Creating data for chart (as array of arrays) with 1st position of array being label
+  }else o++;
+  //Task 2: Construct the chart data using the full agency name. (Hint: Go to the data source)
   let chartData = [
     ["0",v0],
     ["1",v1],
@@ -183,22 +183,22 @@ o++;
     ["Other", o]
   ];
 
-  //Retrieving chart type from user's selection of drop-down
-  let chartType = get("chartType").value;  
-  
-  //Generate and display chart
-  displayChart(chartData,"chart",chartType)
+
+  //Task 3: Retrieve the chart type from the user via the drop down menu
+  let chartType = document.getElementById("chartType").value;
+
+  //Task 4: Display the chart of the breakdown of complaints by agency.
+  displayChart( );
 }
 
 
-// MAP PART //
-let data, mapObj;
-
-function displayMap(){
-  //Retrieve the latitude & longitude from the user via text inputs and pass it to the showMap() function to generate the map and display it.
-  let lati = get("lati").value;
-  let long = get("long").value;
-
-  showMap(lat,lon);
-  
+//Function that accepts the data, an id to the div to display the chart, and the type of chart
+function displayChart( data, chart_id, chart_type ){
+  c3.generate({
+    bindto: `#${chart_id}`, // id of the div to display chart
+    data: {
+      columns: data, // data must be an array of arrays
+      type: chart_type // type of chart (pie/line/bar)
+    }
+  });
 }
