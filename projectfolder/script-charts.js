@@ -5,7 +5,7 @@
 //global variables
 let data, info, output;
 
-async function init(){
+async function initCharts(){
   let link = "pool.json"; //https://data.cityofnewyork.us/resource/erm2-nwe9.json?$limit=200";
   info = await fetch(link);
   data = await info.json();
@@ -33,9 +33,10 @@ function violationsByInspections(){
       v5++;
   }else if(pool.of_all_violations == "6"){
       v6++;
-  }else other++;
-  //Task 2: Construct the chart data using the full agency name. (Hint: Go to the data source)
-  let chartData = [
+  }else o++;
+}
+  //Task 2: Construct the chart data using the full agency name. (Hint: Go to the data source)//
+let chartData = [
     ["0",v0],
     ["1",v1],
     ["2", v2],
@@ -45,15 +46,14 @@ function violationsByInspections(){
     ["6", v6],
     ["Other", o]
   ];
-
+  
 
   //Task 3: Retrieve the chart type from the user via the drop down menu
   let chartType = document.getElementById("chartType").value;
 
   //Task 4: Display the chart of the breakdown of complaints by agency.
-  displayChart( );
+  displayChart(chartData, "chart", chartType);
 }
-
 
 //Function that accepts the data, an id to the div to display the chart, and the type of chart
 function displayChart( data, chart_id, chart_type ){

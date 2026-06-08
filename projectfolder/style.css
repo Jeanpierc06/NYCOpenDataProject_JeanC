@@ -91,3 +91,8 @@ nav a:hover{
   max-width: 200px;
   font-size: 20px;
 }
+
+#menuimage{
+  flex:1;
+  flex-wrap: wrap;
+}
