@@ -65,3 +65,32 @@ function displayChart( data, chart_id, chart_type ){
     }
   });
 }
+
+// 2nd chart
+function violationsByPerms(){
+  //Create and initialize variables to keep a count of complaints by agency.
+  let p1 = 0, p2 = 0, o2 = 0;
+
+  //Task 1: Traverse the data and increment the appropriate tally variable using the agency of the complaint. Use the tally variable "other" to capture all the other agencies.
+  for(let i = 0; i < data.length; i++){
+    let pool = data[i];
+    if(pool.permit_type == "Indoor"){
+      p1++;
+    }else if(pool.permit_type == "Outdoor"){
+      p2++;
+    }else o2++;
+}
+  //Task 2: Construct the chart data using the full agency name. (Hint: Go to the data source)//
+let chartData = [
+    ["Indoor",p1],
+    ["Outdoor",p2],
+    ["Other", o2]
+  ];
+  
+
+  //Task 3: Retrieve the chart type from the user via the drop down menu
+  let chartType = document.getElementById("chartType").value;
+
+  //Task 4: Display the chart of the breakdown of complaints by agency.
+  displayChart(chartData, "chart", chartType);
+}

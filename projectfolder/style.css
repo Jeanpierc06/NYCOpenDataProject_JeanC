@@ -1,6 +1,8 @@
+
 html,body{
+  background-color: #F2F2F2;
   margin:0 auto;
-  font-family:Arial;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .container{
   display:flex;
@@ -25,15 +27,15 @@ nav a:hover{
   color:white;
 }
 .subbanner{
-  background-color:cornflowerblue;
+  background-color:#4DA6FF;
 }
 #banner{
-  background-color:blue;
-  color:white;
+  background-color:#0033A0;
+  color:rgba(255, 255, 255, 0.5);
 }
 #footer{
-  background-color:cornflowerblue;
-  color:white;
+  background-color:#0033A0;
+  color:rgba(255, 255, 255, 0.473);
   /*position:fixed;*/
   left: 0;
   right: 0;
@@ -41,23 +43,38 @@ nav a:hover{
 }
  
 .card{
+  border-radius: 12px;
   flex:1;
   margin:10px;
   padding:10px;
   border:1px solid gray;
   text-align:center;
+  box-shadow: 2px 2px 2px blue;
+  background-color: #F2F2F2;
+}
+
+.card2{
+  color: #1A1A1A;
+  border-radius: 12px;
+  background-color: #7FE7DC;
+  flex:1;
+  margin:10px;
+  padding:10px;
+  border:1px solid gray;
+  text-align:center;
+  box-shadow: 2px 2px 2px blue;
 }
 
 .highlight{
   font-style:italic;
-  color:blue;
+  color:rgb(23, 126, 139);
 }
 .heading{
   font-weight:bold;
 }
 .button{
   text-decoration:none;
-  background-color:blue;
+  background-color:#0033A0;
   color:white;
   border-radius:4px;
   padding:6px;
@@ -92,7 +109,31 @@ nav a:hover{
   font-size: 20px;
 }
 
-#menuimage{
-  flex:1;
-  flex-wrap: wrap;
+
+
+.scrollbar{
+  background-color: #F2F2F2;
+} 
+
+.filtercard{
+  border-radius: 12px;
+  background-color: #7FE7DC;
+}
+body {
+  background-color: grey;
+}
+
+.menuimage{
+    width: 195%;
+    height: 450px; /* fixed height */
+    background-image: url("mainmenu.png");
+    background-size: cover;      /* keeps image proportional */
+    background-position: center; /* centers image */
+    background-repeat: no-repeat;
+    justify-content:center;
+  align-items:center;
+}
+
+.infocard{
+  background-color: #7FE7DC;
 }

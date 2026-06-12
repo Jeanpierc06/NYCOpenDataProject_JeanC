@@ -20,69 +20,32 @@
     </div>
 
 
-    <nav class="container">
-  <a href="css.html"> Home Page</a>
-  <a href="index.html"> Information </a>
+    <nav class="container scrollbar">
+  <a href="index.html"> Home Page</a>
+  <a href="css.html"> Information </a>
   <a href="html.html"> Analysis </a>
 </nav>
 
 
     <div class="container subbanner">
       <div>
-        
-            <img src="mainmenu.png" height="800px" width="1710px" class="menuimage">
-
-        <a class="button" href="https://opendata.cityofnewyork.us/" target="_blank">NYC Open Data</a>
-        <a class="button" target="_blank" href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9/about_data"
-"> NYC pool inspection</a>
-        <a class="button" target="_blank" href="https://jsoneditoronline.org/"> JSON Editor Online</a>
+        <p>this page basically dumps a huge list of inspection records from NYC Open Data. You can filter the data by things like the number of violations, the Accela ID, or the permit type. After that,
+           the page shows tons of entries with details like whether the pool is indoor or outdoor, the address, the date of inspection, what type of inspection it was (routine, complaint, re‑inspection, etc.), how many violations were found, and even the latitude/longitude.
+            It’s basically a giant dataset turned into a webpage so you can search through pool inspection history without digging through raw data yourself.
+          <br>
+   <hr>
+Accela is a government technology company that provides a cloud-based platform for managing permits, licensing, inspections, and other civic services.
+          
+          </p>
+       
        </div>
     </div>
-
-        <h3> New York City Department of Health and Mental Hygiene (DOHMH) </h1>
-        <p>The DOHMH is the city agency responsible for protecting and promoting the health of all New Yorkers.
-          Its work includes disease prevention, environmental health oversight,
-          food and water safety, public health inspections, and enforcing health regulations across the city.</p>
-        <p>For pools specifically, DOHMH issues permits, conducts routine and complaint-based inspections,
-           and ensures that public and private bathing establishments meet safety and sanitation standards.
-        </p>
-
-
-        <h3> Brief Description of the Dataset Used </h3>
-        <p>
-          The dataset used in this website is the NYC Pool Inspections dataset, published by the New York City
-           Department of Health and Mental Hygiene (DOHMH) through the NYC Open Data portal.
-        </p>
-        <p>
-          It contains detailed records of inspections conducted on indoor and outdoor pools across New York City.
-           Each record represents a single inspection and includes information such as:
-        </p>
-        <p>
-          Facility name, address, and borough
-        </p>
-        <p>
-          -Type of permit (indoor or outdoor)
-        </p>
-        <p>
-          -Inspection date and type (routine, complaint, re-inspection, etc.)
-        </p>
-        <p>
-          -Number of violations found, categorized as public health hazard, critical, or general
-        </p>
-        <p>
-          -Geographic data like ZIP code and latitude
-        </p>
-
-
-        
-
-
 
 
     <div class="container">
       <div id="leftPanel">
         <!--Card below is the basic HTML to use for Challenge 1 and 3 -->
-        <div class="card">
+        <div class="card filtercard">
           <h3>SEARCH By amount of violations</h3>
           <input type="text" id="violation" placeholder="Enter by number of violations">
           <hr></hr>
@@ -91,8 +54,8 @@
         <!--Challenge 1: Create another UI in order to filter by zip code. [See Challenge 2 in script.js] -->
 
 
-        <div class="card">
-          <h3>SEARCH By zipcode</h3>
+        <div class="card filtercard">
+          <h3>SEARCH By accela id</h3>
           <input type="text" id="accela" placeholder="Enter Accela ID ">
           <hr></hr>
           <a class="button" onclick="filterByAccela()"> Search </a>
@@ -102,8 +65,8 @@
         <!--Challenge 3: Create another UI in order to filter by complaint type. [See Challenge 4 in script.js] -->
 
 
-        <div class="card">
-          <h3>SEARCH By permit</h3>
+        <div class="card filtercard">
+          <h3>SEARCH By permit type</h3>
           <input type="text" id="permit" placeholder="Enter permit type">
           <hr></hr>
           <a class="button" onclick="filterByPermit()"> Search </a>
@@ -116,17 +79,23 @@
       <div class="card" id="rightPanel">
         <h1>NYC pool inspection</h1>
         <div id="result" class="container"></div>
-        <div id="output" class="container"></div>
+        <div id="output" class="container infocard"></div>
       </div>
      
     </div>
 
 
     <div id="footer" class="container center">
-      <h3>Lesson 6.6 Practical</h3>
-      
+      <h3>NYC open data pool inspections project - jean pierc</h3>
+      <p>
+        Sources
+      </p>
+      <a class="button" href="https://opendata.cityofnewyork.us/" target="_blank">NYC Open Data</a>
+        <a class="button" target="_blank" href="https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2020-to-Present/erm2-nwe9/about_data"
+"> NYC pool inspection</a>
+        <a class="button" target="_blank" href="https://jsoneditoronline.org/"> JSON Editor Online</a>
     </div>  
-   
+ 
   </body>
 </html>
 
