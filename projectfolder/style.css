@@ -137,3 +137,16 @@ body {
 .infocard{
   background-color: #7FE7DC;
 }
+
+
+.infoimage{
+  filter: blur(8px);
+  
+  transition: filter 0.3s ease, transform 0.3s ease; 
+}
+
+.infoimage:hover {
+  filter: blur(0px);
+  
+  transform: scale(1.5); 
+}
